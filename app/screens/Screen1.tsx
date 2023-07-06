@@ -13,7 +13,6 @@ function Screen1() {
     const [globalAppTheme, setGlobalAppTheme] = useAtom(appTheme)
 
     useEffect(() => {
-        console.log("Inside use effect", theme)
         if (theme == "default") setGlobalAppTheme(String(deviceColorScheme))
     }, [deviceColorScheme])
 

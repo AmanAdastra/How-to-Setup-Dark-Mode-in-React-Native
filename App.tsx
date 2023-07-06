@@ -21,7 +21,6 @@ export default function App() {
 
   useEffect(() => {
     getDataFromLocalStorage("appTheme").then((theme) => {
-      console.log("stored theme is",theme)
       if (theme != undefined) setLocalStorageTheme(theme)
     }).catch(err => { console.log(err) })
     if (globalAppTheme == "default") setGlobalAppTheme(String(deviceTheme))
@@ -32,13 +31,12 @@ export default function App() {
     else setGlobalAppTheme(String(deviceTheme))
   }, [localStorageTheme])
   if (apptheme == "default") apptheme = String(deviceTheme)
-  console.log("App rerendered with theme", apptheme)
   return (
     <ThemeContext.Provider value={{ "appTheme": apptheme }}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="Screen2" component={Screen2} />
           <Stack.Screen name="Screen1" component={Screen1} />
+          <Stack.Screen name="Screen2" component={Screen2} />
           <Stack.Screen name="Settings" component={Settings} />
         </Stack.Navigator>
       </NavigationContainer>

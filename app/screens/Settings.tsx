@@ -19,13 +19,11 @@ function Settings() {
     }, [deviceColorScheme])
 
     const deviceThemeChangeHandler = async (themeType: string) => {
-        console.log(themeType)
         storeDatainLocalStorage("appTheme", themeType)
         setGlobalAppTheme(themeType)
     }
 
 
-    console.log(globalAppTheme, theme, deviceColorScheme, "Settings")
     return (
         <View style={[styles.container, theme != "dark" ? styles.lightThemeBackground : styles.darkThemeBackground]}>
             <View style={[styles.screenBox]}>
